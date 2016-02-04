@@ -22,15 +22,15 @@ class Words {
 //: ### variables the same type? If not, why?
 
 
-//: [EXPLAIN YOUR ANSWER HERE]
+//: No. "String?" is an optional String, meaning that it can return "nil." On the other hand, "String!" is an implicitly unwrapped optional, so we assume that it does not have "nil." If we pass in "nil" to the init function, then there would be an error since the variables wordA and wordB cannot be "nil."
 
 
 //: ## Q2: Variable Types and Function Types
     func arePalindromes(words: [String]) -> Bool {
         let reversedWords = words.map() {String($0.characters.reverse())}
-        var numElements = words.count
+        let numElements = words.count
         
-        for let i = 0; i < numElements; i++ {
+        for var i = 0; i < numElements; i++ {
             if words[i] != reversedWords[i] {
                 return false
             }
@@ -41,7 +41,7 @@ class Words {
 //: ### change) the code at the very bottom. Debug the function.
 
 
-//: [EXPLAIN YOUR ANSWER HERE]
+//: The index "i" changes its value, so it should be "var" instead of "let" since it is not a constant.
 
 
 //: ## Q3: More Functions and Object Initialization
